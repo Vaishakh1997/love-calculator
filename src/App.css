@@ -1,38 +1,138 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.section{
+  background-color: white;
+  width: 100%;
+  height: auto;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header{
+  width: 100%;
+  height: 6vw;
+  background-color: lightseagreen;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 5%;
+  padding-right: 5%;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.header h1{
+  font-size: 3vw;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.header p{
+  font-size: 1.5vw;
+  color: white;
+}
+.main{
+  width: 90%;
+  height: auto;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  /* background-color: white; */
+}
+.main h2{
+  font-size: 2.5vw;
+  margin: 0;
+}
+.main p{
+  font-size: 1.6vw;
+}
+.background{
+  background-color: ghostwhite;
+  /* background-image: url(./heart-feather-romantic.jpg); */
+  background-size: cover;
+  opacity: 0.5;
+  height: auto;
+}
+.form{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 5%;
+  height: 20vw;
+  
+}
+#outlined-basic{
+  background-color: white;
+}
+#submit{
+  background-color: springgreen;
+  height: 4vw;
+}
+.result{
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%; 
+  text-align: center; 
+}
+.result h1{
+  text-align: start;
+  font-size: 2vw;
+  text-decoration: underline;
+}
+.result h3{
+  font-size: 2vw;
+}
+.result h2{
+  font-size: 10vw;
+  color: red;
+}
+.result p{
+  font-size: 2vw;
+}
+.heart{
+  width: 10vw;
+  height: 10vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: teal;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media only screen and (max-width: 600px) {
+.header{
+  height: 15vw;
+}
+.header h1{
+  font-size: 5vw;
+}
+.header p{
+  font-size: 2.5vw;
+}
+.main h2{
+  font-size: 6.5vw;
+  text-align: center;
+}
+.main p{
+  font-size: 4vw;
+  text-align: center;
+  color: cadetblue;
+}
+.form{
+  height: 58vw;
+  width: 90%;
+}
+#submit{
+  height: 15vw;
+}
+.result{
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.result h1{
+  font-size: 4vw;
+}
+.result h3{
+  font-size: 4vw;
+  margin: 0;
+}
+.result h2{
+  font-size: 18vw;
+}
 }
