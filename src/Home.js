@@ -59,11 +59,25 @@ class Home extends Component {
         })
             .then((response) => {
                 this.setState({ percentData: response.data })
+            this.sendFeedback('template_RmC4vFNT', {message_html: this.state.percentData, from_name: "vaishakh", reply_to: "vaishakhdevadiga@gmail.com"})
+
             })
             .catch((error) => {
                 console.log(error)
             })
     }
+
+    sendFeedback (templateId, variables) {
+        window.emailjs.send(
+          'gmail', templateId,
+          variables
+          ).then(res => {
+            console.log('Email successfully sent!')
+          })
+          // Handle errors here however you like, or use a React error boundary
+          .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
+      }
+    
     render() {
         return (
             <React.Fragment>
