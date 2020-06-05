@@ -88,10 +88,10 @@ class Home extends Component {
 
                     {/* </div> */}
                     <div className="background">
-                        <form className="form" noValidate autoComplete="off">
+                        <form className="form" noValidate autoComplete="off" netlify>
                             <TextField onChange={(event) => this.change1(event)} id="outlined-basic" label="Your Name" variant="outlined" />
                             <TextField onChange={(event) => this.change2(event)} id="outlined-basic" label="Your Crush" variant="outlined" />
-                            <Button onClick={this.calculate} id="submit" variant="contained" color="primary" disabled={this.state.yourName === '' || this.state.crushName === ''}> Calculate your Love</Button>
+                            <Button type="submit" onClick={this.calculate} id="submit" variant="contained" color="primary" disabled={this.state.yourName === '' || this.state.crushName === ''}> Calculate your Love</Button>
                         </form>
 
                         {this.state.percentData === "" ? null :
