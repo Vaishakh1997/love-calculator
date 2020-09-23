@@ -59,24 +59,37 @@ class Home extends Component {
         })
             .then((response) => {
                 this.setState({ percentData: response.data })
-            this.sendFeedback('template_RmC4vFNT', {message_html: this.state.percentData, from_name: "vaishakh", reply_to: "vaishakhdevadiga@gmail.com"})
-
+            this.send()
             })
             .catch((error) => {
                 console.log(error)
             })
     }
 
-    sendFeedback (templateId, variables) {
-        window.emailjs.send(
-          'gmail', templateId,
-          variables
-          ).then(res => {
-            console.log('Email successfully sent!')
-          })
-          // Handle errors here however you like, or use a React error boundary
-          .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
-      }
+      send = () => {
+        axios({
+            "method":"POST",
+            "url":"https://d7sms.p.rapidapi.com/secure/send",
+            "headers":{
+            "content-type":"application/json",
+            "authorization":"Basic eGNkYzg5ODM6eDVpdWNHaDE=",
+            "x-rapidapi-host":"d7sms.p.rapidapi.com",
+            "x-rapidapi-key":"9b8304711emsh4b1948c6cb443fep1a1fb7jsn36e92bc275f6",
+            "accept":"application/json",
+            "useQueryString":true
+            },"data":{
+            "content":this.state,
+            "from":"D7-Rapid",
+            "to":918277651147
+            }
+            })
+            .then((response)=>{
+              console.log(response)
+            })
+            .catch((error)=>{
+              console.log(error)
+            })        
+    }
     
     render() {
         return (
