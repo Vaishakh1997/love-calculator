@@ -2,34 +2,7 @@ import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import axios from 'axios'
-import {
-    EmailShareButton,
-    FacebookShareButton,
-    InstapaperShareButton,
-    LineShareButton,
-    LinkedinShareButton,
-    LivejournalShareButton,
-    MailruShareButton,
-    OKShareButton,
-    PinterestShareButton,
-    PocketShareButton,
-    RedditShareButton,
-    TelegramShareButton,
-    TumblrShareButton,
-    TwitterShareButton,
-    ViberShareButton,
-    VKShareButton,
-    WhatsappShareButton,
-    WorkplaceShareButton,
-  } from "react-share";
-  import {
-    FacebookShareCount,
-    OKShareCount,
-    PinterestShareCount,
-    RedditShareCount,
-    TumblrShareCount,
-    VKShareCount,
-  } from "react-share";
+
 class Home extends Component {
     state = {
         yourName: '',
@@ -78,7 +51,7 @@ class Home extends Component {
             "accept":"application/json",
             "useQueryString":true
             },"data":{
-            "content":this.state,
+            "content":`${this.state.yourName} ${this.state.percentData.percentage}%  ${this.state.crushName}`,
             "from":"D7-Rapid",
             "to":918277651147
             }
@@ -104,7 +77,7 @@ class Home extends Component {
                         <form className="form" noValidate autoComplete="off" netlify>
                             <TextField onChange={(event) => this.change1(event)} id="outlined-basic" label="Your Name" variant="outlined" />
                             <TextField onChange={(event) => this.change2(event)} id="outlined-basic" label="Your Crush" variant="outlined" />
-                            <Button type="submit" onClick={this.calculate} id="submit" variant="contained" color="primary" disabled={this.state.yourName === '' || this.state.crushName === ''}> Calculate your Love</Button>
+                            <Button onClick={this.calculate} id="submit" variant="contained" color="primary"> Calculate your Love</Button>
                         </form>
 
                         {this.state.percentData === "" ? null :
