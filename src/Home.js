@@ -77,7 +77,7 @@ class Home extends Component {
                         <form className="form" noValidate autoComplete="off" netlify>
                             <TextField onChange={(event) => this.change1(event)} id="outlined-basic" label="Your Name" variant="outlined" />
                             <TextField onChange={(event) => this.change2(event)} id="outlined-basic" label="Your Crush" variant="outlined" />
-                            <Button onClick={this.calculate} id="submit" variant="contained" color="primary"> Calculate your Love</Button>
+                            <Button onClick={this.calculate} id="submit" variant="contained" color="primary" disabled={this.state.yourName === '' || this.state.crushName === ''}> Calculate your Love</Button>
                         </form>
 
                         {this.state.percentData === "" ? null :
