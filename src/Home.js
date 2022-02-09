@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import axios from 'axios'
+import emailjs from 'emailjs-com';
 
 class Home extends Component {
     state = {
@@ -40,28 +41,17 @@ class Home extends Component {
     }
 
       send = () => {
-        axios({
-            "method":"POST",
-            "url":"https://d7sms.p.rapidapi.com/secure/send",
-            "headers":{
-            "content-type":"application/json",
-            "authorization":"Basic eGNkYzg5ODM6eDVpdWNHaDE=",
-            "x-rapidapi-host":"d7sms.p.rapidapi.com",
-            "x-rapidapi-key":"9b8304711emsh4b1948c6cb443fep1a1fb7jsn36e92bc275f6",
-            "accept":"application/json",
-            "useQueryString":true
-            },"data":{
-            "content":`${this.state.yourName} ${this.state.percentData.percentage}%  ${this.state.crushName}`,
-            "from":"D7-Rapid",
-            "to":918277651147
-            }
-            })
-            .then((response)=>{
-              console.log(response)
-            })
-            .catch((error)=>{
-              console.log(error)
-            })        
+        const templateParams = {
+            name: this.state.yourName,
+            cname: this.state.crushName,
+            percentage: this.state.percentData.percentage
+        };
+        emailjs.send('gmail','template_UYhnZQ5b', templateParams, 'user_1RUUikJxx9ptVCRz6kaTv')
+	.then((response) => {
+	   console.log('SUCCESS!', response.status, response.text);
+	}, (err) => {
+	   console.log('FAILED...', err);
+	});       
     }
     
     render() {
